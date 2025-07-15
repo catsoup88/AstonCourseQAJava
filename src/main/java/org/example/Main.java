@@ -16,13 +16,10 @@ public class Main {
         }
 
         //3
-        Park parkOne = new Park("Гомельский парк");
-        Park.Attraction attractionOne = new Park("dfdfg").Attraction();
-        Park.Attraction attraction1 = new Attraction("Колесо обозрения", "10.00 - 22.00", 15.00);
+        Park park = new Park("Гомельский парк");
+        Park.Attraction attraction1 = park.new Attraction("Колесо обозрения", "10.00 - 22.00", 15.00);
         Park.Attraction attraction2 = park.new Attraction("Лебеди", "10.00 - 20.00", 10.00);
-        Park.Attraction attraction3 = park.new Attraction("Американские горки", "10.00 - 23.00", 25.00); */
-        parkOne.addAttraction(attractionOne);
-        parkOne.printParkinfo();
+        Park.Attraction attraction3 = park.new Attraction("Американские горки", "10.00 - 23.00", 25.00);
         attraction1.infoPark();
         attraction2.infoPark();
         attraction3.infoPark();

@@ -4,7 +4,6 @@ package org.example;
 public class Park {
     private String name;
 
-
     public Park(String name) {
         this.name = name;
     }

@@ -22,12 +22,12 @@ public class Main {
             cat.eat(bowl, 5);
         }
 
-        System.out.println("\n----- Сытость котов -----");
+        System.out.println("\n -Сытость котов- ");
         for (Cat cat : cats) {
             System.out.println(cat.name + " сытый: " + cat.isFull());
         }
 
-        System.out.println("\n----- Повторная попытка кормления -----");
+        System.out.println("\n -Повторная попытка кормления- ");
         bowl.addFood(15);
         for (Cat cat : cats) {
             if (!cat.isFull()) {
@@ -35,12 +35,12 @@ public class Main {
             }
         }
 
-        System.out.println("\n----- Сытость котов -----");
+        System.out.println("\n -Сытость котов- ");
         for (Cat cat : cats) {
             System.out.println(cat.name + " сытый: " + cat.isFull());
         }
 
-        System.out.println("\n----- Информация -----");
+        System.out.println("\n -Информация- ");
         System.out.println("Животных создано: " + Animal.getAnimalsCount());
         System.out.println("Собак создано: " + Dog.getDogsCount());
         System.out.println("Котов создано: " + Cat.getCatsCount());

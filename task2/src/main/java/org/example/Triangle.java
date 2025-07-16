@@ -18,7 +18,7 @@ public class Triangle implements Shape {
     @Override
     public double getArea() {
         double halfPerimeter = getPerimeter() / 2;
-        return Math.sqrt(halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c)); //Формула Герона
+        return Math.sqrt(halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c));
     }
 
     @Override

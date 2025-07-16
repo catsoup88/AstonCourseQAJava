@@ -13,7 +13,7 @@ public class Main {
         cat1.swim(7);
         cat2.run(300);
 
-        System.out.println("\n----- Кормим котов -----");
+        System.out.println("\n -Кормим котов- ");
         Cat[] cats = {cat1, cat2};
         Bowl bowl = new Bowl(12);
         System.out.println("Всего еды в миске: " + bowl.getFood());

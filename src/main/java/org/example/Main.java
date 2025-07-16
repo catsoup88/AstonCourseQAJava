@@ -3,23 +3,23 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        Dog dog = new Dog("Шарик");
-        Cat cat1 = new Cat("Мурзик");
-        Cat cat2 = new Cat("Барсик");
+        Dog dog = new Dog("Мухтар");
+        Cat cat1 = new Cat("Борис");
+        Cat cat2 = new Cat("Шрек");
 
-        dog.run(150);
-        dog.swim(8);
-        cat1.run(120);
-        cat1.swim(5);
-        cat2.run(250);
+        dog.run(160);
+        dog.swim(10);
+        cat1.run(100);
+        cat1.swim(7);
+        cat2.run(300);
 
         System.out.println("\n----- Кормим котов -----");
         Cat[] cats = {cat1, cat2};
-        Bowl bowl = new Bowl(15); //Изначально 15 еды в миске
+        Bowl bowl = new Bowl(12);
         System.out.println("Всего еды в миске: " + bowl.getFood());
 
         for (Cat cat : cats) {
-            cat.eat(bowl, 10); //Каждый хочет есть по 10 еды
+            cat.eat(bowl, 5);
         }
 
         System.out.println("\n----- Сытость котов -----");
@@ -28,10 +28,10 @@ public class Main {
         }
 
         System.out.println("\n----- Повторная попытка кормления -----");
-        bowl.addFood(10); //Пополним миску
+        bowl.addFood(15);
         for (Cat cat : cats) {
             if (!cat.isFull()) {
-                cat.eat(bowl, 10);
+                cat.eat(bowl, 15);
             }
         }
 

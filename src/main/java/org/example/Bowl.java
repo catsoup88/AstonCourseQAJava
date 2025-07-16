@@ -4,7 +4,7 @@ public class Bowl {
     private int food;
 
     public Bowl(int food) {
-        this.food = Math.max(food, 0); // Защита от отрицательных значений (еда в миске не может быть меньше нуля)
+        this.food = Math.max(food, 0);
     }
 
     public boolean decreaseFood(int amount) {

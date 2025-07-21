@@ -52,7 +52,6 @@ public class Main {
 
         int[] numbers = {1, 2, 3, 4, 5, 6,};
         try {
-
             System.out.println(numbers[10]);
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Ошибка: выход за границы массива: " + e.getMessage());

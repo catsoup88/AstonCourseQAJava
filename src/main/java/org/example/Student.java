@@ -1,40 +1,54 @@
 package org.example;
 
+import java.util.HashMap;
+
 public class Student {
     private String name;
     private String group;
     private int course;
-    private double[] grades;
+    private HashMap<String, Integer> grades;
 
-    public Student(String name, String group, int course, double[] grades) {
+    public Student(String name, String group, int course, HashMap<String, Integer> grades) {
         this.name = name;
         this.group = group;
         this.course = course;
-        this.grades = grades;
+        this.grades = new HashMap<>(grades);
+    }
+
+    public int averageGrade() {
+        if (grades.size() == 0) {
+            throw new IllegalStateException("No grades available");
+        }
+        int sum = 0;
+        for (Integer grade : grades.values()) {
+            sum += grade;
+        }
+        return sum / grades.size();
+    }
+
+    public void upCourse() {
+        try {
+            if (averageGrade() >= 3) {
+                course++;
+            }
+        } catch (IllegalStateException e) {
+            System.out.println("Cannot delete student " + getName() + ": no grades available.");
+        }
     }
 
     public String getName() {
         return name;
     }
 
+    public String getGroup() {
+        return group;
+    }
+
     public int getCourse() {
         return course;
     }
 
-    public double getAverageGrade() {
-        double sum = 0;
-        for (double grade : grades) {
-            sum += grade;
-        }
-        return sum / grades.length;
-    }
-
-    public void promoteToNextCourse() {
-        this.course++;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{name='" + name + "', group='" + group + "', course=" + course + ", averageGrade=" + getAverageGrade() + "}";
+    public HashMap<String, Integer> getGrades() {
+        return new HashMap<>(grades);
     }
 }

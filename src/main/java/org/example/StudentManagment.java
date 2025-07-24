@@ -1,35 +1,34 @@
 package org.example;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.Set;
 
 
 public class StudentManagment {
-    public static void removeStudentsWithLowGrades(Set<Student> students) {
-        Iterator<Student> iterator = students.iterator();
-        while (iterator.hasNext()) {
-            Student student = iterator.next();
-            if (student.getAverageGrade() < 3) {
-                iterator.remove();
+    private ArrayList<Student> students = new ArrayList<>();
+
+    public void addStudent(Student student) {
+        students.add(student);
+    }
+
+    public void deleteStudent(Student student) {
+        try {
+            if (student.averageGrade() < 3) {
+                students.remove(student);
             }
+        } catch (IllegalStateException e) {
+            System.out.println("Cannot delete student " + student.getName() + ": no grades available.");
         }
     }
 
-    // Метод для перевода студентов на следующий курс, если средний балл >= 3
-    public static void promoteStudents(Set<Student> students) {
-        for (Student student : students) {
-            if (student.getAverageGrade() >= 3) {
-                student.promoteToNextCourse();
-            }
-        }
-    }
-
-    // Метод для вывода студентов на определённом курсе
-    public static void printStudents(Set<Student> students, int course) {
-        System.out.println("Students on course " + course + ":");
+    public void printStudents(Set<Student> students, int course) {
         for (Student student : students) {
             if (student.getCourse() == course) {
                 System.out.println(student.getName());
             }
         }
+    }
+
+    public ArrayList<Student> getStudents() {
+        return new ArrayList<>(students);
     }
 }

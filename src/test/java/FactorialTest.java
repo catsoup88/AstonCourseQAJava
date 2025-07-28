@@ -10,23 +10,23 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class FactorialTest {
     @BeforeEach
-    void setUp() {
+    void start() {
         System.out.println("Запуск теста факториала");
     }
 
     @AfterEach
-    void tearDown() {
+    void Final() {
         System.out.println("Завершение теста факториала");
     }
 
     @Test
-    @DisplayName("Проверка факториала для 5")
+    @DisplayName("Проверка факториала 5")
     void testFactorialPositive(){
         Assertions.assertEquals(120, Factorial.factorial(5));
     }
 
     @Test
-    @DisplayName("Проверка факториала для 0")
+    @DisplayName("Проверка факториала 0")
     void testFactorialZero() {
         Assertions.assertEquals(1, Factorial.factorial(0));
     }
@@ -34,12 +34,11 @@ public class FactorialTest {
     @Test
     @DisplayName("Проверка отрицательного числа вызывает исключение")
     void testFactorialNegative(){
-        Assertions.assertThrows(IllegalArgumentException.class, () -> Factorial.factorial(-1));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Factorial.factorial(-77));
     }
 
-    @DisplayName("Проверка факториалов для параметров")
-    @ParameterizedTest(name = "Факториал для {0}")
-    @MethodSource("factorialDataProvider")
+    @ParameterizedTest(name = "Факториал {0}")
+    @MethodSource("factorialData")
     void testFactorialWithParameters(int number, long expected) {
         if (number < 0) {
             Assertions.assertThrows(IllegalArgumentException.class, () -> Factorial.factorial(number));
@@ -48,12 +47,12 @@ public class FactorialTest {
         }
     }
 
-    static Stream<Arguments> factorialDataProvider() {
+    static Stream<Arguments> factorialData() {
         return Stream.of(
                 arguments(1, 1),
                 arguments(2, 2),
                 arguments(4, 24),
-                arguments(-1, 0) // ожидается исключение
+                arguments(-1, 0)
         );
     }
 }

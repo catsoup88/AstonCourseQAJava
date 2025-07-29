@@ -9,12 +9,12 @@ import static org.testng.Assert.assertThrows;
 
 public class FactorialTest {
     @BeforeMethod
-    public void setUp() {
+    public void Start() {
         System.out.println("Запуск теста факториала");
     }
 
     @AfterMethod
-    public void tearDown() {
+    public void Final() {
         System.out.println("Завершение теста факториала");
     }
 
@@ -33,8 +33,8 @@ public class FactorialTest {
         Factorial.factorial(-1);
     }
 
-    @Test(dataProvider = "factorialDataProvider", description = "Параметризованный тест факториала")
-    public void testFactorialWithDataProvider(int number, long expected) {
+    @Test(dataProvider = "factorial", description = "Параметризованный тест факториала")
+    public void testFactorial(int number, long expected) {
         if (number < 0) {
             assertThrows(IllegalArgumentException.class, () -> Factorial.factorial(number));
         } else {
@@ -43,7 +43,7 @@ public class FactorialTest {
     }
 
     @DataProvider
-    public static Object[][] factorialDataProvider(){
+    public static Object[][] factorial(){
         return new Object[][]{
                 {1, 1},
                 {2, 2},

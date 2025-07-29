@@ -20,7 +20,7 @@ public class TriangleSquareTest {
 
     @Test(description = "Площадь треугольника со сторонами 3, 4, 5")
     public void testValidTriangle() {
-        assertEquals(TriangleSquare.square(3, 4, 5), 6.0, 0.0001);
+        assertEquals(TriangleSquare.square(3, 4, 5), 6.0);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class, description = "Некорректные стороны")
@@ -31,11 +31,11 @@ public class TriangleSquareTest {
     }
 
     @Test(dataProvider = "TriangleSquare", description = "Параметризованный тест сторон треугольника")
-    public void testTriangleSquareWith( double param1, double param2, double param3, double expected) {
+    public void testTriangleSquare( double param1, double param2, double param3, double expected) {
         if (param1 <= 0 || param2 <= 0 || param3 <= 0) {
             assertThrows(IllegalArgumentException.class, () -> TriangleSquare.square(param1, param2, param3));
         } else {
-            assertEquals(TriangleSquare.square(param1, param2, param3), expected, 0.0001);
+            assertEquals(TriangleSquare.square(param1, param2, param3), expected);
         }
     }
 

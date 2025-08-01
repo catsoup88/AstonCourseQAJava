@@ -21,9 +21,8 @@ public class PostRequestTest {
         spec
                 .contentType("application/json; charset=utf-8")
                 .body("{\"test\" : \"value\"}")
-
-                .when().post("/post")
-
+                .when()
+                .post("/post")
                 .then().log().all()
                 .statusCode(200)
                 .body("data.test", equalTo("value"))

@@ -10,10 +10,8 @@ public class GetRequestTest {
                 .baseUri("https://postman-echo.com")
                 .queryParam("foo1", "bar1")
                 .queryParam("foo2", "bar2")
-
                 .when()
                 .get("/get")
-
                 .then().log().body()
                 .statusCode(200)
                 .body("args.foo1", equalTo("bar1"))

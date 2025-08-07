@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Epic("Оплата МТС")
 @Feature("Онлайн пополнение без комиссии")
-public class MtsTest {
+public class MtsTests {
     private static WebDriver driver;
     PaySection paySection;
     PaymentFrame paymentFrame;
